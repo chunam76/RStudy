@@ -1,0 +1,17 @@
+
+
+
+1. https://dev.twitter.com/web/sign-in에 접속
+2. 우측 상단의 MyApps 선택
+3. 로그인 (트위터 계정이 없다면 계정 생성 필요)
+4. Create New App 버튼 선택
+5. Application 화면에서 Application 부분에 다음의 항목을 입력:
+
+Name: Application 이름 (자유롭게 명명 가능) 
+Description Application의 설명 (자유롭게 명명 가능) 
+Wevsite: 본인의 트위터 계정
+
+Developer Agreement에 동의를 하고 Create yout Twitter application 버튼 선택
+
+6. 생성된 Application에서 Keys and Access Tokens 메뉴로 들어가
+API Key, API Secret, Access Token, Access Token Secret를 확보하면 완료

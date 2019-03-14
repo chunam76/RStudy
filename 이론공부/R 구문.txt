@@ -1,0 +1,95 @@
+1. 데이터 불러오기
+travel <- read.csv("E:/Study/R/RStudy/lession12/travel.csv")
+
+2. 라이브러리 불러오기
+import(ggplot2)
+
+3. 데이터의 특징 알아보기
+head(travel)
+
+4. 데이터의 상위 5개 혹은 하위 5개 정보 보기
+str(travel)
+tail(travel)
+
+5. 기술통계(합계, 평균, 최대, 최소 등) 정보 보기
+summary(travel)
+
+6. 연관성 분석을 수행해서 보기
+inspect(travel)
+
+7. 데이터 가로(변수) 중 원하는 변수의 데이터 추출
+travel[, c(1, 2, 5)] : 변수 중 1, 2, 5 번째만 추출
+travel[, -c(3, 4)] : 변수 중 3, 4 번째를 제외하고 추출
+travel[, c("cust_id","destination")] : 변수 중 cust_id, destination를 추출
+
+8. 데이터의 세로 중 원하는 범위의 데이터를 추출
+travel[1:20, ] : 1부터 20까지
+travel[sample(nrow(travel), 5), ] : 데이터에서 무작위로 5개 얻기
+travel[sample(20, 5),] : 데이터에서 무작위로 5개 얻기
+
+9. 조건문 수행
+ifelse(travel$cost > 57000, "High", "Low")
+
+7. 조건에 부합하는 데이터 추출하기
+subset(travel, cust_id=="1" & area=="서울")
+* 비교구문 : ==, !=, &, |
+
+8. 데이터 변환
+split(travel$destination, travel$cust_id) : cust_id 별 destination을 list 형태로 변환
+as(travel,"data.frame")
+as.factor(travel$date)
+as.character(travel$date)
+
+9. 데이터 정제
+subset(travel, cust_id=="1" & area=="서울") : 다중 조건을 통한 정제
+subset(travel[, 4:5], cust_id=="1" & area=="서울")
+ifelse(travel$cost > 57000, "High", "Low") : 조건문
+substr(travel$date, 1, 4) : text 짤라내기
+paste(travel$year,"년도",sep="") : 원하는 data 붙여넣기
+gsub("0", "", travel$month) : replace 기능
+??sort(result_wordcount, decreasing = T)
+order(-travel$cost) : cost가 높은 순으로 정렬
+order(travel$cost) : cost가 낮은 순으로 정렬
+
+10. 데이터 결합
+cbind(data1, data2) : 합칠려는 data 끼리 데이터 갯수가 동일해야 한다.
+rbind(data1, data2) : 합칠려는 data 끼리 변수명과 변수의 갯수가 동일해야 한다.
+aggregate(a ~ b, data=travel, sum) : b를 기준으로 a 를 sum 하여 통합한다.
+merge(data1, data2, by="id") : 내부 병합 
+merge(data1, data2, by="id", all.x=T) : 부분 외부 병합(data1를 기준으로 병합한다)
+merge(data1, data2, by="id", all.y=T) : 부분 외부 병합(data2를 기준으로 병합한다)
+merge(data1, data2, by="id", all=T) : 전체 외부 병합
+
+11. 데이터 계산
+mean(travel$cost) : 평균
+median(travel$cost) : 중수
+sd(travel$cost) : 표준편차
+nchar(travel$destination) : text 길이
+
+
+## 벡터 학습
+# 1) 벡터 정의
+v <- c(1,2,3,4,5)
+v1 <- c(1:5)
+v2 <- c(1:5,10,100,100:105,-10)
+
+# 2) 벡터 연산
+v+1
+v+v1
+
+# 3) 논리 연산
+v>3
+v==1
+
+# 4) 벡터 묶기
+c(v,6)
+c(v,NA)
+
+# 5) 벡터의 유형 확인
+is.numeric(v)
+is.factor(v)
+is.na(c(v,NA))
+
+
+
+
