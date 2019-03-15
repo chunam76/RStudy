@@ -30,6 +30,13 @@ travel[sample(20, 5),] : 데이터에서 무작위로 5개 얻기
 9. 조건문 수행
 ifelse(travel$cost > 57000, "High", "Low")
 
+x<-3
+if(x>0){
+  print("양의 수")
+} else {
+  print("0보다 작은 수")
+}
+
 7. 조건에 부합하는 데이터 추출하기
 subset(travel, cust_id=="1" & area=="서울")
 * 비교구문 : ==, !=, &, |
@@ -66,29 +73,26 @@ median(travel$cost) : 중수
 sd(travel$cost) : 표준편차
 nchar(travel$destination) : text 길이
 
+12. 반복문
+z <- 1:10
+for (i in z){
+  print(z[i])
+}
 
-## 벡터 학습
-# 1) 벡터 정의
-v <- c(1,2,3,4,5)
-v1 <- c(1:5)
-v2 <- c(1:5,10,100,100:105,-10)
+i <- 0;
+while (i < 10){
+  print(i)
+  i <- i + 1
+}
 
-# 2) 벡터 연산
-v+1
-v+v1
+13. 사용자 함수 사용
+x<-1:5
 
-# 3) 논리 연산
-v>3
-v==1
-
-# 4) 벡터 묶기
-c(v,6)
-c(v,NA)
-
-# 5) 벡터의 유형 확인
-is.numeric(v)
-is.factor(v)
-is.na(c(v,NA))
+square<-function(x){
+  x^2
+}
+x
+square(x)
 
 
 
